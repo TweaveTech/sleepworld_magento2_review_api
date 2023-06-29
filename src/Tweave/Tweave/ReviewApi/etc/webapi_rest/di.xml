@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Tweave\ReviewApi\Api\Data\ReviewDataInterface" type="Tweave\ReviewApi\Model\ReviewData" />
+    <type name="Magento\Webapi\Controller\Rest\RequestValidator">
+        <plugin name="change_auth_error_message" type="Tweave\ReviewApi\Plugin\RequestValidatorPlugin" sortOrder="10" disabled="false" />
+    </type>
+</config>
