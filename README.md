@@ -14,7 +14,7 @@ Features
 ## Requirements
 
     Magento 2.x (tested up to 2.4)
-    PHP 8.0 or later
+    PHP 7.4 or later
 
 
 ## Usage
