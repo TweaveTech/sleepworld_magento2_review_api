@@ -1,22 +1,26 @@
 {
-    "name": "tweave/module-reviewapi",
-    "version": "1.0.0",
-    "description": "Review API functionalities.",
+    "name": "tweave/magento2-review-api",
     "type": "magento2-module",
+    "description": "Review API Magento 2 Extension",
     "require": {
-        "magento/framework": "*",
-        "magento/module-review": "100.4.*",
-        "magento/module-review-graph-ql": "100.4.*"
+        "php": "^8.0.0",
+        "magento/framework": "^102.0.0",
+        "magento/module-review": "^102.0.0",
+        "magento/module-customer": "^102.0.0",
+        "magento/module-store": "^102.0.0",
+        "magento/module-catalog": "^102.0.0"
     },
-    "license": [
-        "Proprietary"
-    ],
     "autoload": {
+        "psr-4": {
+            "TweaveTech\\ReviewApi\\": "src/"
+        },
         "files": [
             "registration.php"
-        ],
-        "psr-4": {
-            "Tweave\\ReviewApi\\": ""
-        }
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true
     }
 }
