@@ -4,11 +4,11 @@
     "description": "Review API Magento 2 Extension",
     "require": {
         "php": "^8.0.0",
-        "magento/framework": "^102.0.0",
-        "magento/module-review": "^102.0.0",
-        "magento/module-customer": "^102.0.0",
-        "magento/module-store": "^102.0.0",
-        "magento/module-catalog": "^102.0.0"
+        "magento/framework": "^100.0.0",
+        "magento/module-review": "^100.0.0",
+        "magento/module-customer": "^100.0.0",
+        "magento/module-store": "^100.0.0",
+        "magento/module-catalog": "^100.0.0"
     },
     "autoload": {
         "psr-4": {
