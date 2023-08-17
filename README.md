@@ -16,6 +16,44 @@ Features
     Magento 2.x (tested up to 2.4)
     PHP 8.0 or later
 
+## Installation
+
+Before installing the extension, make sure you have set up your Composer authentication token for GitHub. Run the following command to add the token:
+
+``
+composer config --global github-oauth.github.com YOUR_GITHUB_TOKEN
+``
+
+Add the following line to your project's composer.json file under the require section:
+
+```json
+"require": {
+.
+.
+.
+"tweave/magento2-review-api": "1.0.4"
+}
+```
+
+Add the following repository configuration to your project's composer.json file:
+
+```json
+"repositories": [
+.
+.
+.
+{
+"type": "vcs",
+"url": "https://github.com/TweaveTech/sleepworld_magento2_review_api.git"
+}
+]
+```
+
+Run the following command to install the extension
+
+``bash
+composer update tweave/magento2-review-api
+``
 
 ## Usage
 
