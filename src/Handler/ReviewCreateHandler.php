@@ -24,9 +24,8 @@ class ReviewCreateHandler
      * @return array[]
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @throws \Magento\Framework\GraphQl\Exception\GraphQlNoSuchEntityException
      */
-    public function __invoke(ReviewDataInterface $reviewData)
+    public function __invoke(ReviewDataInterface $reviewData): array
     {
         $review = $this->reviewHelper->initializeReview();
         $productId = $this->productHelper->getProductIdBySku($reviewData->getProductSku());
@@ -35,7 +34,8 @@ class ReviewCreateHandler
         $nickname = $this->customerHelper->getReviewNickname($customer, $reviewData->getCustomerName());
 
         if ($customer === null && empty($nickname)) {
-            throw new \Exception("Customer details are missing. You either have an existent customer email or an customerName.");
+            throw new \Magento\Framework\Exception\NoSuchEntityException(
+                __("Customer details are missing. You either have an existent customer email or an customerName."));
         }
 
         $review->setEntityId($review->getEntityIdByCode(Review::ENTITY_PRODUCT_CODE))

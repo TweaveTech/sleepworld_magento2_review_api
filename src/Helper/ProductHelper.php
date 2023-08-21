@@ -11,7 +11,7 @@ class ProductHelper
     /**
      * @var ProductRepositoryInterface
      */
-    protected $productRepository;
+    protected ProductRepositoryInterface $productRepository;
 
     /**
      * @param  ProductRepositoryInterface  $productRepository

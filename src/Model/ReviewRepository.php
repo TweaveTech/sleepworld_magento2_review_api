@@ -42,7 +42,7 @@ class ReviewRepository implements ReviewRepositoryInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      * @api
      */
-    public function create(ReviewDataInterface $reviewData)
+    public function create(ReviewDataInterface $reviewData): array
     {
         try {
             $handler = new ReviewCreateHandler(
@@ -100,7 +100,7 @@ class ReviewRepository implements ReviewRepositoryInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @api
      */
-    public function get($id)
+    public function get(int $id): array
     {
         try {
             $handler = new ReviewGetHandler(
@@ -128,7 +128,7 @@ class ReviewRepository implements ReviewRepositoryInterface
      * @throws \Magento\Framework\Exception\CouldNotDeleteException
      * @api
      */
-    public function delete($id)
+    public function delete(int $id): array
     {
         try {
             $handler = new ReviewDeleteHandler($this->reviewHelper);
@@ -155,7 +155,7 @@ class ReviewRepository implements ReviewRepositoryInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @api
      */
-    public function listByProductSku($productSku)
+    public function listByProductSku(string $productSku): array
     {
         try {
             $handler = new ReviewListHandler(

@@ -17,7 +17,7 @@ class ReviewDeleteHandler
      * @return true
      * @throws NoSuchEntityException
      */
-    public function __invoke(int $id)
+    public function __invoke(int $id): bool
     {
         $review = $this->reviewHelper->getReview($id);
         $review->aggregate()->delete();

@@ -17,22 +17,22 @@ class RatingHelper
     /**
      * @var RatingFactory
      */
-    protected $ratingFactory;
+    protected RatingFactory $ratingFactory;
 
     /**
      * @var OptionVoteCollectionFactory
      */
-    protected $ratingOptionCollectionFactory;
+    protected OptionVoteCollectionFactory $ratingOptionCollectionFactory;
 
     /**
-     * @var \Magento\Review\Model\Rating\OptionFactory
+     * @var OptionFactory
      */
-    protected $ratingOptionModelFactory;
+    protected OptionFactory $ratingOptionModelFactory;
 
     /**
-     * @var \Tweave\ReviewApi\Model\Config
+     * @var Config
      */
-    protected $config;
+    protected Config $config;
 
     /**
      * @param  CustomerRepositoryInterface  $customerRepository

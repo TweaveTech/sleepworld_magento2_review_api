@@ -10,7 +10,7 @@ interface ReviewRepositoryInterface
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function create(ReviewDataInterface $reviewData);
+    public function create(ReviewDataInterface $reviewData): array;
 
     /**
      * @api
@@ -26,7 +26,7 @@ interface ReviewRepositoryInterface
      * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function get($id);
+    public function get(int $id): array;
 
     /**
      * @api
@@ -35,13 +35,13 @@ interface ReviewRepositoryInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\CouldNotDeleteException
      */
-    public function delete($id);
+    public function delete(int $id): array;
 
     /**
      * @api
      * @param string $productSku
-     * @return \Tweave\ReviewApi\Api\Data\ReviewDataInterface[]
+     * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function listByProductSku($productSku);
+    public function listByProductSku(string $productSku): array;
 }

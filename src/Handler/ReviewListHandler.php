@@ -14,8 +14,13 @@ class ReviewListHandler
         protected ReviewHelper $reviewHelper
     ) { }
 
-
-    public function __invoke(string $productSku)
+    /**
+     * @param  int  $id
+     *
+     * @return array
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function __invoke(string $productSku): array
     {
 
         $productId = $this->productHelper->getProductIdBySku($productSku);

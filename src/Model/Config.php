@@ -25,7 +25,7 @@ class Config implements ValueInterface
      *
      * @return int|null
      */
-    public function getRatingId()
+    public function getRatingId(): ?int
     {
         return (int) $this->configValue->getValue(self::XML_PATH_RATING_ID);
     }

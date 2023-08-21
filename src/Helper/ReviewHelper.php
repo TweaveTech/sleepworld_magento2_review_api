@@ -4,25 +4,25 @@ namespace Tweave\ReviewApi\Helper;
 
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Magento\Reports\Model\ResourceModel\Review\CollectionFactory;
+use Magento\Review\Model\ResourceModel\Review\CollectionFactory;
 use Magento\Review\Model\ReviewFactory;
 
 class ReviewHelper
 {
     /**
-     * @var \Magento\Review\Model\ResourceModel\Review\CollectionFactory
+     * @var CollectionFactory
      */
-    protected $reviewCollectionFactory;
+    protected CollectionFactory $reviewCollectionFactory;
 
     /**
      * @var ReviewFactory
      */
-    protected $reviewFactory;
+    protected ReviewFactory $reviewFactory;
 
     /**
      * @var ResourceConnection
      */
-    protected $resourceConnection;
+    protected ResourceConnection $resourceConnection;
 
     public function __construct(
         ReviewFactory $reviewFactory,
@@ -41,7 +41,7 @@ class ReviewHelper
      *
      * @return array
      */
-    public function getReviewsByProductId($productId)
+    public function getReviewsByProductId($productId): array
     {
         /** @var \Magento\Review\Model\ResourceModel\Review\Collection $reviewCollection */
         $reviewCollection = $this->reviewCollectionFactory->create();
@@ -54,7 +54,14 @@ class ReviewHelper
         return $reviewCollection->getItems();
     }
 
-    public function getReview($id)
+    /**
+     * Retrieves the review by its ID.
+     *
+     * @param int $id The ID of the review to retrieve.
+     * @return \Magento\Review\Model\Review The loaded review.
+     * @throws NoSuchEntityException If no review is found with the provided ID.
+     */
+    public function getReview(int $id): \Magento\Review\Model\Review
     {
 
         $review = $this->reviewFactory->create()->load($id);
@@ -65,13 +72,17 @@ class ReviewHelper
         return $review;
     }
 
-    public function initializeReview()
+    /**
+     * Initializes a new review instance.
+     *
+     * @return \Magento\Review\Model\Review A new review instance.
+     */
+    public function initializeReview(): \Magento\Review\Model\Review
     {
-
         return $this->reviewFactory->create();
     }
 
-    public function updateCustomerId($reviewId, $newCustomerId)
+    public function updateCustomerId($reviewId, $newCustomerId): array
     {
         try {
             $connection = $this->resourceConnection->getConnection();

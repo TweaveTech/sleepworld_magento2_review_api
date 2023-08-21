@@ -47,7 +47,7 @@ class CustomerHelper
      * @throws NoSuchEntityException
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getCustomerByEmail(?string $customerEmail, $storeId = null): ?CustomerInterface
+    public function getCustomerByEmail(?string $customerEmail, ?string $storeId = null): ?CustomerInterface
     {
         if ($customerEmail == null) {
             return null;
@@ -55,7 +55,7 @@ class CustomerHelper
 
         $websiteId = null;
 
-        if ($storeId) {
+        if (!empty($storeId)) {
             $store = $this->storeRepository->getById($storeId);
             $websiteId = $store->getWebsiteId();
         }
@@ -70,12 +70,12 @@ class CustomerHelper
         }
     }
 
-    public function getCustomerId($customer)
+    public function getCustomerId(?CustomerInterface $customer): ?int
     {
-        return $customer ? $customer->getId() : null;
+        return $customer ? (int) $customer->getId() : null;
     }
 
-    public function getReviewNickname($customer, $customerName)
+    public function getReviewNickname(?CustomerInterface $customer,string $customerName): string
     {
         return $customer ? trim(implode(' ', array_filter([$customer->getFirstName(), $customer->getMiddleName(), $customer->getLastName()]))) : $customerName;
     }

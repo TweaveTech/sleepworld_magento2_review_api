@@ -18,7 +18,7 @@ class ReviewGetHandler
      * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function __invoke(int $id)
+    public function __invoke(int $id): array
     {
         $review = $this->reviewHelper->getReview($id);
 

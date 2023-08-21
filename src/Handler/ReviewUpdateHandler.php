@@ -23,7 +23,7 @@ class ReviewUpdateHandler
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function __invoke(int $id, ReviewDataInterface $reviewData)
+    public function __invoke(int $id, ReviewDataInterface $reviewData): array
     {
 
         $review = $this->reviewHelper->getReview($id);
