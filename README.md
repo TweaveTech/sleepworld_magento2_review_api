@@ -28,7 +28,6 @@ Add the following line to your project's composer.json file under the require se
 
 ```json
 "require": {
-. . .
 "tweave/magento2-review-api": "1.0.4"
 }
 ```
@@ -37,7 +36,6 @@ Add the following repository configuration to your project's composer.json file:
 
 ```json
 "repositories": [
-. . . 
 {
 "type": "vcs",
 "url": "https://github.com/TweaveTech/sleepworld_magento2_review_api.git"
