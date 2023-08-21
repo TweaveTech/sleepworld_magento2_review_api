@@ -25,9 +25,9 @@ interface ReviewDataInterface
     public function getProductSku(): string;
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getCustomerEmail(): string;
+    public function getCustomerEmail(): ?string;
 
     /**
      * @return int
@@ -45,9 +45,9 @@ interface ReviewDataInterface
     public function getStatus(): int;
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getCustomerName(): string;
+    public function getCustomerName(): ?string;
 
     /**
      * @param  string  $title
@@ -71,11 +71,11 @@ interface ReviewDataInterface
     public function setProductSku(string $productSku): self;
 
     /**
-     * @param  string  $customerEmail
+     * @param ?string  $customerEmail
      *
      * @return $this
      */
-    public function setCustomerEmail(string $customerEmail): self;
+    public function setCustomerEmail(?string $customerEmail): self;
 
     /**
      * @param  int  $rating
@@ -99,9 +99,9 @@ interface ReviewDataInterface
     public function setStatus(int $status): self;
 
     /**
-     * @param  string  $customerName
+     * @param  ?string  $customerName
      *
      * @return $this
      */
-    public function setCustomerName(string $customerName): self;
+    public function setCustomerName(?string $customerName): self;
 }
