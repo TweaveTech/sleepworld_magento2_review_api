@@ -75,7 +75,7 @@ class CustomerHelper
         return $customer ? (int) $customer->getId() : null;
     }
 
-    public function getReviewNickname(?CustomerInterface $customer,string $customerName): string
+    public function getReviewNickname(?CustomerInterface $customer, ?string $customerName): string
     {
         return $customer ? trim(implode(' ', array_filter([$customer->getFirstName(), $customer->getMiddleName(), $customer->getLastName()]))) : $customerName;
     }

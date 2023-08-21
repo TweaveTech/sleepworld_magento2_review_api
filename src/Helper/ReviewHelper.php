@@ -41,15 +41,13 @@ class ReviewHelper
      *
      * @return array
      */
-    public function getReviewsByProductId($productId): array
+    public function getReviewsByProductId(int $productId): array
     {
         /** @var \Magento\Review\Model\ResourceModel\Review\Collection $reviewCollection */
         $reviewCollection = $this->reviewCollectionFactory->create();
         $reviewCollection
             ->addEntityFilter('product', $productId)
             ->setDateOrder();
-
-        // You can apply additional filters or sorting as needed
 
         return $reviewCollection->getItems();
     }
@@ -82,21 +80,43 @@ class ReviewHelper
         return $this->reviewFactory->create();
     }
 
-    public function updateCustomerId($reviewId, $newCustomerId): array
+    /**
+     * @param  int  $reviewId
+     * @param  ?int  $newCustomerId
+     *
+     * @return array
+     */
+    public function updateCustomerId(int $reviewId, ?int $newCustomerId): array
     {
         try {
-            $connection = $this->resourceConnection->getConnection();
             $tableName = $this->resourceConnection->getTableName('review_detail');
-
             $sql = "UPDATE $tableName SET customer_id = :new_customer_id WHERE review_id = :review_id";
             $bind = ['review_id' => $reviewId, 'new_customer_id' => $newCustomerId];
-            $connection->query($sql, $bind);
 
+            $this->executeQuery($sql, $bind);
             return ['success' => true, 'message' => 'Customer ID successfully updated.'];
         } catch (\Exception $e) {
             return ['success' => false, 'message' => 'Failed to update customer ID. Error: ' . $e->getMessage()];
         }
     }
 
+    /**
+     * Execute a query with given bindings.
+     *
+     * @param  string  $sql
+     * @param  array  $bind
+     * @return void
+     * @throws \Exception
+     */
+    protected function executeQuery(string $sql, array $bind): void
+    {
+        $connection = $this->resourceConnection->getConnection();
+
+        try {
+            $connection->query($sql, $bind);
+        } catch (\Exception $e) {
+            throw new \Exception("Failed to execute query. Error: " . $e->getMessage());
+        }
+    }
 
 }

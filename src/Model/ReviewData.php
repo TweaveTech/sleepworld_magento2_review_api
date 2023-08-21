@@ -8,12 +8,12 @@ class ReviewData implements ReviewDataInterface
 {
     private string $title;
     private string $content;
-    private string $customerEmail;
     private string $productSku;
     private int $storeId;
     private int $status;
     private int $rating;
-    private string $customerName;
+    private ?string $customerEmail = null;
+    private ?string $customerName = null;
 
     public function getTitle(): string
     {
