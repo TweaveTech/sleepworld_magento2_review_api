@@ -6,21 +6,21 @@ use Tweave\ReviewApi\Api\Data\ReviewDataInterface;
 
 class ReviewData implements ReviewDataInterface
 {
-    private string $title;
-    private string $content;
-    private string $productSku;
-    private int $storeId;
-    private int $status;
-    private int $rating;
+    private ?string $title = null;
+    private ?string $content = null;
+    private ?string $productSku = null;
+    private ?int $storeId = null;
+    private ?int $status = null;
+    private ?int $rating = null;
     private ?string $customerEmail = null;
     private ?string $customerName = null;
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->content;
     }
@@ -30,22 +30,22 @@ class ReviewData implements ReviewDataInterface
         return $this->customerEmail;
     }
 
-    public function getProductSku(): string
+    public function getProductSku(): ?string
     {
         return $this->productSku;
     }
 
-    public function getStoreId(): int
+    public function getStoreId(): ?int
     {
         return $this->storeId;
     }
 
-    public function getStatus(): int
+    public function getStatus(): ?int
     {
         return $this->status;
     }
 
-    public function getRating(): int
+    public function getRating(): ?int
     {
         return $this->rating;
     }
@@ -55,13 +55,13 @@ class ReviewData implements ReviewDataInterface
         return $this->customerName;
     }
 
-    public function setTitle($title): ReviewDataInterface
+    public function setTitle(?string $title): ReviewDataInterface
     {
         $this->title = $title;
         return $this;
     }
 
-    public function setContent($content): ReviewDataInterface
+    public function setContent(?string $content): ReviewDataInterface
     {
         $this->content = $content;
         return $this;
@@ -73,16 +73,17 @@ class ReviewData implements ReviewDataInterface
         return $this;
     }
 
-    public function setProductSku(string $productSku): ReviewDataInterface
+    public function setProductSku(?string $productSku): ReviewDataInterface
     {
         $this->productSku = $productSku;
         return $this;
     }
 
-    public function setStoreId(int $storeId): ReviewDataInterface
+
+    public function setStoreId(?int $storeId): ReviewDataInterface
     {
-        if ( !is_int($storeId)) {
-            throw new \InvalidArgumentException('Store ID should be either an integer or an array of integers');
+        if (!is_null($storeId) && !is_int($storeId)) {
+            throw new \InvalidArgumentException('Store ID should be either an integer or null');
         }
 
         $this->storeId = $storeId;
@@ -90,18 +91,18 @@ class ReviewData implements ReviewDataInterface
     }
 
 
-    public function setStatus(int $status): ReviewDataInterface
+    public function setStatus(?int $status): ReviewDataInterface
     {
         $this->status = $status;
         return $this;
     }
 
-    public function setRating(int $rating): ReviewDataInterface
+    public function setRating(?int $rating): ReviewDataInterface
     {
         $this->rating = $rating;
         return $this;
     }
-    
+
     public function setCustomerName(?string $customerName): ReviewDataInterface
     {
         $this->customerName = $customerName;

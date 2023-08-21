@@ -10,19 +10,19 @@ namespace Tweave\ReviewApi\Api\Data;
 interface ReviewDataInterface
 {
     /**
-     * @return string
+     * @return ?string
      */
-    public function getTitle(): string;
+    public function getTitle(): ?string;
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getContent(): string;
+    public function getContent(): ?string;
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getProductSku(): string;
+    public function getProductSku(): ?string;
 
     /**
      * @return ?string
@@ -30,19 +30,19 @@ interface ReviewDataInterface
     public function getCustomerEmail(): ?string;
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getRating(): int;
+    public function getRating(): ?int;
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getStoreId(): int;
+    public function getStoreId(): ?int;
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getStatus(): int;
+    public function getStatus(): ?int;
 
     /**
      * @return ?string
@@ -50,25 +50,25 @@ interface ReviewDataInterface
     public function getCustomerName(): ?string;
 
     /**
-     * @param  string  $title
+     * @param  ?string  $title
      *
      * @return $this
      */
-    public function setTitle(string $title): self;
+    public function setTitle(?string $title): self;
 
     /**
-     * @param  string  $content
+     * @param  ?string  $content
      *
      * @return $this
      */
-    public function setContent(string $content): self;
+    public function setContent(?string $content): self;
 
     /**
-     * @param  string  $productSku
+     * @param  ?string  $productSku
      *
      * @return $this
      */
-    public function setProductSku(string $productSku): self;
+    public function setProductSku(?string $productSku): self;
 
     /**
      * @param ?string  $customerEmail
@@ -78,25 +78,25 @@ interface ReviewDataInterface
     public function setCustomerEmail(?string $customerEmail): self;
 
     /**
-     * @param  int  $rating
+     * @param  ?int  $rating
      *
      * @return $this
      */
-    public function setRating(int $rating): self;
+    public function setRating(?int $rating): self;
 
     /**
-     * @param  int  $storeId
+     * @param  ?int  $storeId
      *
      * @return $this
      */
-    public function setStoreId(int $storeId): self;
+    public function setStoreId(?int $storeId): self;
 
     /**
-     * @param  int  $status
+     * @param  ?int  $status
      *
      * @return $this
      */
-    public function setStatus(int $status): self;
+    public function setStatus(?int $status): self;
 
     /**
      * @param  ?string  $customerName
