@@ -25,7 +25,7 @@ class ReviewData implements ReviewDataInterface
         return $this->content;
     }
 
-    public function getCustomerEmail(): string
+    public function getCustomerEmail(): ?string
     {
         return $this->customerEmail;
     }
@@ -50,7 +50,7 @@ class ReviewData implements ReviewDataInterface
         return $this->rating;
     }
 
-    public function getCustomerName(): string
+    public function getCustomerName(): ?string
     {
         return $this->customerName;
     }
@@ -67,7 +67,7 @@ class ReviewData implements ReviewDataInterface
         return $this;
     }
 
-    public function setCustomerEmail(string $customerEmail): ReviewDataInterface
+    public function setCustomerEmail(?string $customerEmail): ReviewDataInterface
     {
         $this->customerEmail = $customerEmail;
         return $this;
@@ -102,7 +102,7 @@ class ReviewData implements ReviewDataInterface
         return $this;
     }
     
-    public function setCustomerName(string $customerName): ReviewDataInterface
+    public function setCustomerName(?string $customerName): ReviewDataInterface
     {
         $this->customerName = $customerName;
         return $this;
