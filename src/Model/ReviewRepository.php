@@ -59,8 +59,11 @@ class ReviewRepository implements ReviewRepositoryInterface
                 'data' => $response
             ];
 
-        } catch (\Exception $e) {
-            throw new \Magento\Framework\Exception\LocalizedException(__('Error creating review: ' . $e->getMessage()));
+        } catch (\Throwable $e) {
+            $response = ['success' => false, 'errors' => [__('Error creating review: ' . $e->getMessage())]];
+            return [
+                'data' => $response
+            ];
         }
     }
 
@@ -88,8 +91,11 @@ class ReviewRepository implements ReviewRepositoryInterface
                 'data' => $response
             ];
 
-        } catch (\Exception $e) {
-            throw new \Magento\Framework\Exception\NoSuchEntityException(__('Error updating review: ' . $e->getMessage()));
+        } catch (\Throwable $e) {
+            $response = ['success' => false, 'errors' => [__('Error updating review: ' . $e->getMessage())]];
+            return [
+                'data' => $response
+            ];
         }
     }
 
@@ -115,8 +121,11 @@ class ReviewRepository implements ReviewRepositoryInterface
                 'data' => $response
             ];
 
-        } catch (\Exception $e) {
-            throw new \Magento\Framework\Exception\NoSuchEntityException(__('Error fetching review: ' . $e->getMessage()));
+        } catch (\Throwable $e) {
+            $response = ['success' => false, 'errors' => [__('Error fetching review: ' . $e->getMessage())]];
+            return [
+                'data' => $response
+            ];
         }
     }
 
@@ -141,9 +150,10 @@ class ReviewRepository implements ReviewRepositoryInterface
                 throw new \Exception("Handler failed to delete the review");
             }
 
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
+            $response = ['success' => false, 'message' => 'Failed to delete review. Error: ' . $e->getMessage()];
             return [
-                'data' => ['success' => false, 'message' => 'Failed to delete review. Error: ' . $e->getMessage()]
+                'data' => $response
             ];
         }
     }
@@ -170,8 +180,11 @@ class ReviewRepository implements ReviewRepositoryInterface
             return [
                 'data' => $response
             ];
-        } catch (\Exception $e) {
-            throw new \Magento\Framework\Exception\LocalizedException(__('Error fetching reviews: ' . $e->getMessage()));
+        } catch (\Throwable $e) {
+            $response = ['success' => false, 'errors' => [__('Error fetching product reviews: ' . $e->getMessage())]];
+            return [
+                'data' => $response
+            ];
         }
     }
 
