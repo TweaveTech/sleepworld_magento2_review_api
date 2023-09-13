@@ -42,6 +42,7 @@ The request body should contain the review data as JSON. Here's an example of a 
     "content": "This product is the best I have ever used!",
     "customerName": "John Doe",
     "productSku": "my-product-sku",
+    "createdAt": "2010-09-13 08:55:18",
     "storeId": 1,
     "rating": 5,
     "status": 1
@@ -58,6 +59,7 @@ Or, you can specify a registered customer email:
         "content": "The quality of this product is outstanding!",
         "customerEmail": "johndoe@example.com",
         "productSku": "my-product-sku",
+        "createdAt": "2010-09-13 08:55:18",
         "storeId": 1,
         "rating": 5,
         "status": 1
@@ -129,6 +131,7 @@ The response will be a JSON object containing the review data. Here's an example
             "nickname": "John Doe",
             "status": "1",
             "customerId": null,
+            "createdAt": "2010-09-13 08:55:18",
             "rating": "5"
         }
     }
@@ -163,6 +166,7 @@ The `reviewData` object contains the following fields:
 - `customerEmail`: The email of the customer who made the review.
 - `customerName`: The name of the customer who made the review.
 - `rating`: The rating given to the product.
+- 'createdAt': The date the review was created
 
 Note:
 1. The `customerId` can be changed. If the `customerEmail` provided does not correspond to the current `customerId`, it will be updated accordingly. Even make it a guest if the email is not longer an customer.
@@ -236,7 +240,8 @@ The endpoint returns an object that contains an array of review objects for the 
 - `status`: The status of the review. "1" indicates that the review is approved.
 - `customerId`: The ID of the customer who wrote the review. If the review was written by a guest, this field will be `null`.
 - `rating`: The rating given in the review. If there is no rating, this field will be `null`.
-
+- 'createdAt': The date of the review
+- 
 If the provided product SKU does not match any existing product, the endpoint will return a `NoSuchEntityException`.
 
 Example response:
