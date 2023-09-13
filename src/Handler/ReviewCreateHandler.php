@@ -49,6 +49,11 @@ class ReviewCreateHandler
             ->setNickname($nickname)
             ->save();
 
+        if (!empty($reviewData->getCreatedAt())) {
+            $review->setCreatedAt($reviewData->getCreatedAt());
+            $review->save();
+        }
+
         $ratingValue = $reviewData->getRating();
         $this->ratingHelper->addReviewRatingVotes($ratingValue, (int) $review->getId(), $customerId, $productId);
         $review->aggregate();
@@ -61,7 +66,8 @@ class ReviewCreateHandler
             'title'      => $review->getTitle(),
             'detail'     => $review->getDetail(),
             'nickname'   => $review->getNickname(),
-            'customerId' => $review->getCustomerId()
+            'customerId' => $review->getCustomerId(),
+            'createdAt'  => $review->getCreatedAt()
         ];
     }
 

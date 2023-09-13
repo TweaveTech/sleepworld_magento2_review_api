@@ -35,6 +35,7 @@ class ReviewGetHandler
             'nickname'   => $review->getNickname(),
             'status'     => $review->getStatusId(),
             'customerId' => $review->getCustomerId(),
+            'createdAt'  => $review->getCreatedAt(),
             'rating'     => $value
         ];
     }

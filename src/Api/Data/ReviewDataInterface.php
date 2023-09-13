@@ -50,6 +50,11 @@ interface ReviewDataInterface
     public function getCustomerName(): ?string;
 
     /**
+     * @return ?string
+     */
+    public function getCreatedAt(): ?string;
+
+    /**
      * @param  ?string  $title
      *
      * @return $this
@@ -104,4 +109,11 @@ interface ReviewDataInterface
      * @return $this
      */
     public function setCustomerName(?string $customerName): self;
+
+    /**
+     * @param  ?string  $createdAt
+     *
+     * @return $this
+     */
+    public function setCreatedAt(?string $createdAt): self;
 }

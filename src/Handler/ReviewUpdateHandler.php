@@ -52,6 +52,11 @@ class ReviewUpdateHandler
         if ( ! empty($reviewData->getStatus()) && $reviewData->getStatus() !== $review->getStatusId()) {
             $review->setStatusId($reviewData->getStatus());
         }
+
+        if ( ! empty($reviewData->getCreatedAt()) && $reviewData->getCreatedAt() !== $review->getCreatedAt()) {
+            $review->setCreatedAt($reviewData->getCreatedAt());
+        }
+
         $review->save();
 
         $votesCollection = $this->ratingHelper->getReviewRatingVotes($review->getId(), $review->getStoreId());

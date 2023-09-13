@@ -14,6 +14,7 @@ class ReviewData implements ReviewDataInterface
     private ?int $rating = null;
     private ?string $customerEmail = null;
     private ?string $customerName = null;
+    private ?string $createdAt = null;
 
     public function getTitle(): ?string
     {
@@ -53,6 +54,11 @@ class ReviewData implements ReviewDataInterface
     public function getCustomerName(): ?string
     {
         return $this->customerName;
+    }
+
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
     }
 
     public function setTitle(?string $title): ReviewDataInterface
@@ -106,6 +112,12 @@ class ReviewData implements ReviewDataInterface
     public function setCustomerName(?string $customerName): ReviewDataInterface
     {
         $this->customerName = $customerName;
+        return $this;
+    }
+
+    public function setCreatedAt(?string $createdAt): ReviewDataInterface
+    {
+        $this->createdAt = $createdAt;
         return $this;
     }
 }
