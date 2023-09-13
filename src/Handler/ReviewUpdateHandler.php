@@ -80,6 +80,7 @@ class ReviewUpdateHandler
             'detail'     => $review->getDetail(),
             'status'     => $review->getStatusId(),
             'customerId' => $review->getCustomerId(),
+            'createdAt'  => $review->getCreatedAt(),
             'rating'     => $value
         ];
     }
